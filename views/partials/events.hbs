@@ -1,0 +1,58 @@
+<!-- Events Start -->
+<div class="container-fluid events py-5 bg-light">
+    <div class="container py-5">
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">
+                Our Events</h4>
+            <h1 class="mb-5 display-3">Our Upcoming Events</h1>
+        </div>
+        <div class="g-5 justify-content-center">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {{#each events}}
+                    <div class="swiper-slide">
+                        <div class="wow fadeIn" data-wow-delay="0.1s">
+                            <div class="events-item bg-primary rounded">
+                                <div class="events-inner position-relative">
+                                    <div class="events-img overflow-hidden rounded-circle position-relative">
+                                        <img src="/{{cover}}" style="height:250px"
+                                            class="img-fluid w-100 rounded-circle" alt="Image">
+                                        <div class="event-overlay">
+                                            <a href="/{{cover}}" data-lightbox="event-1"><i
+                                                    class="fas fa-search-plus text-white fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-2 bg-secondary text-white text-center events-rate"
+                                        style="width: 200px !important;">{{date}}</div>
+                                    <div class="d-flex justify-content-between px-4 py-2 bg-secondary">
+                                        <small class="text-white"><i class="fas fa-calendar me-1 text-primary"></i>
+                                            {{time}}</small>
+                                        <small class="text-white"><i
+                                                class="fas fa-map-marker-alt me-1 text-primary"></i>
+                                            {{location}}</small>
+                                    </div>
+                                </div>
+                                <div class="events-text p-4 border border-primary bg-white border-top-0 rounded-bottom">
+                                    <a href="/event/{{_id}}" class="h4 w-100 d-block text-center">{{name}}</a>
+                                    <p class="mb-0 mt-3 w-100 admin-description">{{shortDescription}}</p>
+                                    <div class="text-center">
+                                        <a href="/event/{{_id}}"
+                                            class="btn btn-primary text-white px-4 py-2 my-2 btn-border-radius">Read
+                                            More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{#if (showButtonHelper 'Events' title)}}
+            <div class="text-center wow fadeIn mt-5 mb-3" data-wow-delay="0.1s">
+                <a href="/event" class="btn btn-primary px-5 py-3 text-white btn-border-radius">Vew All Events</a>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<!-- Events End-->

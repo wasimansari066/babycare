@@ -1,0 +1,92 @@
+{{>header}}
+<title> {{title}}</title>
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>sidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Create Blog <a href="/admin/blog"
+                    class="text-light float-end">Back</a></h5>
+            <form action="/admin/blog/store" method="post" enctype="multipart/form-data">
+
+                <div class="row">
+                    <div class="col-sm-6 mb-3">
+                        <label>Name*</label>
+                        <input type="text" name="name" value="{{data.name}}" placeholder="Full Name"
+                            class="form-control border-primary border-3">
+                        {{#if errorMessage.name }}<p class="text-danger">{{errorMessage.name}}</p>{{/if}}
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <label>Cover*</label>
+                        <input type="file" name="cover" class="form-control border-primary border-3">
+                        {{#if errorMessage.cover }}<p class="text-danger">{{errorMessage.cover}}</p>{{/if}}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Short Description*</label>
+                    <textarea name="shortDescription" placeholder="Short Description..."
+                        class="form-control border-3 border-primary" rows="4">{{data.shortDescription}}</textarea>
+                    {{#if errorMessage.shortDescription }}<p class="text-danger">{{errorMessage.shortDescription}}</p>
+                    {{/if}}
+                </div>
+
+                <div class="mb-3 border-3">
+                    <label>Long Description*</label>
+                    <textarea name="longDescription" placeholder="Long Description..."
+                        class="form-control border-3 border-primary" style="border:3px solid #ff4880 !important"
+                        id="div_editor1" rows="4">{{data.longDescription}}</textarea>
+                    {{#if errorMessage.longDescription }}<p class="text-danger">{{errorMessage.longDescription}}</p>
+                    {{/if}}
+                </div>
+
+
+                <div class="mb-3">
+                    <label>Meta Title</label>
+                    <textarea name="metaTitle" placeholder="Meta Title..." class="form-control border-3 border-primary"
+                        rows="4">{{data.metaTitle}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Meta Description</label>
+                    <textarea name="metaDescription" placeholder="Meta Description..."
+                        class="form-control border-3 border-primary" rows="4">{{data.metaDescription}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Meta Keywords</label>
+                    <textarea name="metaKeywords" placeholder="Meta Keywords..."
+                        class="form-control border-3 border-primary" rows="4">{{data.metaKeywords}}</textarea>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Active</label>
+                        <select name="active" class="form-select border-3 border-primary">
+                            <option value="1" {{dropdownHelper data.active true}}>Yes</option>
+                            <option value="0" {{dropdownHelper data.active false}}>No</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Sort Order</label>
+                        <input type="number" name="sortOrder" placeholder="Sort Order" value="{{data.sortOrder}}"
+                            class="form-control border-3 border-primary">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

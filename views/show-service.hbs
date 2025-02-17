@@ -1,0 +1,28 @@
+{{>header}}
+<title> {{service.metaTitle}}</title>
+<meta name="description" content={{service.metaDescription}}>
+<meta name="keywords" content={{service.metaKeywords}}>
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid service py-5">
+    <div class="row mx-3">
+        <div class="col-md-9">
+            <h3 class="text-center bg-primary text-light p-2">{{service.name}}</h3>
+            <p class="text-justify mb-3">{{service.shortDescription}}</p>
+            <img src="/{{service.cover}}" height="400px" width="100%" alt="">
+            <div class="card p-3">
+                <p class="text-justify mb-3">{{{service.longDescription}}}</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h4 class="bg-primary text-center p-2 text-light">Our Other Services</h4>
+            {{#each allServices}}
+            <a href="/service/{{_id}}" class="d-block bg-primary p-2 mb-1 text-light fs-5 ps-4">{{name}}</a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+{{>footer}}

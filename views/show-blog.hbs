@@ -1,0 +1,29 @@
+{{>header}}
+<title> {{blog.metaTitle}}</title>
+<meta name="description" content={{blog.metaDescription}}>
+<meta name="keywords" content={{blog.metaKeywords}}>
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid py-5">
+    <div class="row mx-3">
+        <div class="col-md-9">
+            <h3 class="text-center bg-primary text-light p-2">{{blog.name}} <span
+                    class="float-end fs-5 mt-1">{{dateHelper blog.createdAt}}</span></h3>
+            <p class="text-justify mb-3">{{blog.shortDescription}}</p>
+            <img src="/{{blog.cover}}" height="400px" width="100%" alt="">
+            <div class="card p-3">
+                <p class="text-justify mb-3">{{{blog.longDescription}}}</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h4 class="bg-primary text-center p-2 text-light">Our Other Blogs</h4>
+            {{#each allBlog}}
+            <a href="/blog/{{_id}}" class="d-block bg-primary p-2 mb-1 text-light fs-5 ps-4">{{name}}</a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+{{>footer}}

@@ -1,0 +1,81 @@
+{{>header}}
+<title> {{title}}</title>
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>sidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Service <a href="/admin/service"
+                    class="float-end text-light">Back</a></h5>
+            <table class="table table-bordered border-3 border-primary">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{data._id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{data.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Short Description</th>
+                        <td>{{data.shortDescription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Long Description</th>
+                        <td>{{{data.longDescription}}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table class="table table-bordered border-3 border-primary text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Icon</th>
+                                        <th>Cover Pic</th>
+                                        <th>Sort Order</th>
+                                        <th>Active</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{{data.icon}}}</td>
+                                        <td>
+                                            <a href="/{{data.cover}}" target="_blank">
+                                                <img src="/{{data.cover}}" height="100px" width="200px" alt="">
+                                            </a>
+                                        </td>
+                                        <td>{{data.sortOrder}}</td>
+                                        <td>{{activeHelper data.active}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Meta Title</th>
+                        <td>{{data.metaTitle}}</td>
+                    </tr>
+                    <tr>
+                        <th>Meta Description</th>
+                        <td>{{data.metaDescription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Meta Keywords</th>
+                        <td>{{data.metaKeywords}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><a href="/admin/service/edit/{{data._id}}"
+                                class="btn btn-primary w-100">Update</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

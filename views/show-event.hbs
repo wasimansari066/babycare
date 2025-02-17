@@ -1,0 +1,44 @@
+{{>header}}
+<title> {{event.metaTitle}}</title>
+<meta name="description" content={{event.metaDescription}}>
+<meta name="keywords" content={{event.metaKeywords}}>
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid program py-5">
+    <div class="row mx-3">
+        <div class="col-md-9">
+            <h3 class="text-center bg-primary text-light p-2">{{event.name}}</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{event.date}}</td>
+                        <td>{{event.time}}</td>
+                        <td>{{event.location}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-justify mb-3">{{event.shortDescription}}</p>
+            <img src="/{{event.cover}}" height="400px" width="100%" alt="">
+            <div class="card p-3">
+                <p class="text-justify mb-3">{{{event.longDescription}}}</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h4 class="bg-primary text-center p-2 text-light">Our Other Events</h4>
+            {{#each allEvent}}
+            <a href="/event/{{_id}}" class="d-block bg-primary p-2 mb-1 text-light fs-5 ps-4">{{name}}</a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+{{>footer}}

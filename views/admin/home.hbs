@@ -1,0 +1,47 @@
+{{>header}}
+<title>BabyCare - {{title}}</title>
+
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>sidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Admin</h5>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{data.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>User Name</th>
+                        <td>{{data.username}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{data.email}}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>{{data.phone}}</td>
+                    </tr>
+                    <tr>
+                        <th>Role</th>
+                        <td>{{data.role}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><a href="/admin/user/update-profile" class="btn btn-primary w-100">Update
+                                Profile</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

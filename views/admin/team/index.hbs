@@ -1,0 +1,91 @@
+{{>header}}
+<title> {{title}}</title>
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>sidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Team <a href="/admin/team/create"><i
+                        class="fa fa-plus text-light float-end"></i></a></h5>
+            <div class="table-responsive">
+                <table id="mytable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Profile</th>
+                            <th>Facebook</th>
+                            <th>LinkedIn</th>
+                            <th>Twitter</th>
+                            <th>Instagram</th>
+                            <th>Pic</th>
+                            <th>Active</th>
+                            <th>Sort Order</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>{{_id}}</td>
+                            <td>{{name}}</td>
+                            <td>{{profile}}</td>
+                            <td>
+                                {{#if facebook}}
+                                <a href="{{facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                {{else}}
+                                N/A
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if linkedin}}
+                                <a href="{{linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                {{else}}
+                                N/A
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if twitter}}
+                                <a href="{{twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                {{else}}
+                                N/A
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if instagram}}
+                                <a href="{{instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
+                                {{else}}
+                                N/A
+                                {{/if}}
+                            </td>
+                            <td>
+                                <a href="/{{pic}}" target="_blank">
+                                    <img src="/{{pic}}" height="50px" width="50px" alt="">
+                                </a>
+                            </td>
+                            <td>{{activeHelper active}}</td>
+                            <td>{{sortOrder}}</td>
+                            <td><a href="/admin/team/edit/{{_id}}" class="btn btn-primary"><i
+                                        class="fa fa-edit"></i></a></td>
+                            <td>
+                                {{#if (isSuperAdmin ../session.role) }}
+                                <a href="/admin/team/delete/{{_id}}" class="btn btn-danger"><i
+                                        class="fa fa-trash"></i></a>
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

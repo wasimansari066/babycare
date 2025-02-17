@@ -1,0 +1,40 @@
+<!-- Service Start -->
+<div class="container-fluid service py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">
+                Our Services</h4>
+            <h1 class="mb-5 display-3">Thanks To Get Started With Our School</h1>
+        </div>
+        <div class="g-5">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {{#each services}}
+                    <div class="swiper-slide">
+                        <div class="wow fadeIn" data-wow-delay="0.1s">
+                            <div class="text-center border-primary border bg-white service-item">
+                                <div class="service-content d-flex align-items-center justify-content-center p-4">
+                                    <div class="service-content-inner">
+                                        <div class="p-4">{{{icon}}}</div>
+                                        <a href="/service/{{_id}}" class="h5">{{name}}</a>
+                                        <p class="my-3 admin-description">{{shortDescription}}</p>
+                                        <a href="/service/{{_id}}"
+                                            class="btn btn-primary text-white px-4 py-2 my-2 btn-border-radius">Read
+                                            More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{#if (showButtonHelper 'Services' title)}}
+            <div class="text-center wow fadeIn mt-5 mb-3" data-wow-delay="0.1s">
+                <a href="/service" class="btn btn-primary px-5 py-3 text-white btn-border-radius">Vew All Services</a>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<!-- Service End -->

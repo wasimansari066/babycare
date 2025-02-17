@@ -1,0 +1,46 @@
+{{>header}}
+<title> {{title}}</title>
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>sidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Newsletter</h5>
+            <div class="table-responsive">
+                <table id="mytable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>Active</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>{{_id}}</td>
+                            <td>{{email}}</td>
+                            <td><a style="cursor: pointer;" title="Click to Change Status"
+                                    href="/admin/newsletter/edit/{{_id}}">{{activeHelper active}}</a></td>
+                            <td>
+                                {{#if (isSuperAdmin ../session.role) }}
+                                <a href="/admin/newsletter/delete/{{_id}}" class="btn btn-danger"><i
+                                        class="fa fa-trash"></i></a>
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

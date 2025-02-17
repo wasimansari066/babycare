@@ -1,0 +1,88 @@
+{{>header}}
+<title> {{title}}</title>
+{{>navbar}}
+
+{{>hero}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>sidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Update Team <a href="/admin/team"
+                    class="text-light float-end">Back</a></h5>
+            <form action="/admin/team/update/{{data._id}}" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Name*</label>
+                        <input type="text" name="name" value="{{data.name}}" placeholder="Full Name"
+                            class="form-control border-primary border-3">
+                        {{#if errorMessage.name }}<p class="text-danger">{{errorMessage.name}}</p>{{/if}}
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Profile*</label>
+                        <input type="text" name="profile" value="{{data.profile}}" placeholder="Profile"
+                            class="form-control border-primary border-3">
+                        {{#if errorMessage.profile }}<p class="text-danger">{{errorMessage.profile}}</p>{{/if}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Facebook Profile</label>
+                        <input type="url" name="facebook" value="{{data.facebook}}"
+                            class="form-control border-3 border-primary" placeholder="Facebook Profile Page Link">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Linkedin Profile</label>
+                        <input type="url" name="linkedin" value="{{data.linkedin}}"
+                            class="form-control border-3 border-primary" placeholder="Linkedin Profile Page Link">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Twitter Profile</label>
+                        <input type="url" name="twitter" value="{{data.twitter}}"
+                            class="form-control border-3 border-primary" placeholder="Twitter Profile Page Link">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Instagram Profile</label>
+                        <input type="url" name="instagram" value="{{data.instagram}}"
+                            class="form-control border-3 border-primary" placeholder="Instagram Profile Page Link">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <label>Pic</label>
+                        <input type="file" name="pic" class="form-control border-3 border-primary">
+                        {{#if errorMessage.pic }}<p class="text-danger">{{errorMessage.pic}}</p>{{/if}}
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <label>Active</label>
+                        <select name="active" class="form-select border-3 border-primary">
+                            <option value="1" {{dropdownHelper data.active true}}>Yes</option>
+                            <option value="0" {{dropdownHelper data.active false}}>No</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <label>Sort Order</label>
+                        <input type="number" name="sortOrder" placeholder="Sort Order" value="{{data.sortOrder}}"
+                            class="form-control border-3 border-primary">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

@@ -1,0 +1,24 @@
+<div class="list-group">
+        <a href="/admin" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-home fs-5"></i> <span class="float-end">Home</span></a>
+        <a href="/admin/testimonial" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-star fs-5"></i> <span class="float-end">Testimonial</span></a>
+        <a href="/admin/service" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-list fs-5"></i> <span class="float-end">Service</span></a>
+        <a href="/admin/program" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-list fs-5"></i> <span class="float-end">Program</span></a>
+        <a href="/admin/event" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-calendar fs-5"></i> <span class="float-end">Events</span></a>
+        <a href="/admin/blog" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fas fa-blog fs-5"></i> <span class="float-end">Blog</span></a>
+        <a href="/admin/team" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-users fs-5"></i> <span class="float-end">Team</span></a>
+        <a href="/admin/newsletter" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-envelope fs-5"></i> <span class="float-end">Newsletter</span></a>
+        <a href="/admin/contactus" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-phone fs-5"></i> <span class="float-end">ContactUs</span></a>
+        {{#if (isSuperAdmin session.role) }}
+        <a href="/admin/user" class="list-group-item list-group-item-action active mb-1" aria-current="true"><i
+                        class="fa fa-user fs-5"></i> <span class="float-end">User</span></a>
+        {{/if}}
+</div>
